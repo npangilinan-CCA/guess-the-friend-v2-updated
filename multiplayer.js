@@ -116,8 +116,6 @@
   $('online-game-leave').hidden=(s.phase==='finished');
   // Custom questions mirror Local Mode: only allowed when the game is set for 2+ rounds.
   const customAllowed=s.customQuestionsAllowed!==false;
-  $('online-add-question').hidden=!customAllowed;
-  $('online-add-question-locked-hint').hidden=customAllowed;
   $('online-answer-form').hidden=true;$('online-wait-answer').hidden=true;$('online-answer-card').textContent='';
   $('online-vote-form').hidden=true;$('online-wait-vote').hidden=true;$('online-answer-results').hidden=true;
   $('online-results-score-grid').textContent='';
