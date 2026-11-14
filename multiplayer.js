@@ -116,8 +116,6 @@
   $('online-game-leave').hidden=(s.phase==='finished');
   // Custom questions mirror Local Mode: only allowed when the game is set for 2+ rounds.
   const customAllowed=s.customQuestionsAllowed!==false;
-  $('online-add-question').hidden=!customAllowed;
-  $('online-add-question-locked-hint').hidden=customAllowed;
   $('online-answer-form').hidden=true;$('online-wait-answer').hidden=true;$('online-answer-card').textContent='';
   $('online-vote-form').hidden=true;$('online-wait-vote').hidden=true;$('online-answer-results').hidden=true;
   $('online-results-score-grid').textContent='';
@@ -129,7 +127,7 @@
    $('online-answer-progress-fill').style.width=Math.min(100,((s.answeredCount||0)/Math.max(1,s.players.length))*100)+'%';
    if(me){$('online-answer-avatar').replaceChildren(avatarMarkup(me).querySelector('img'));$('online-answer-turn').textContent="It's "+me.name+"'s Turn";}
    if(s.myAnswerSubmitted){$('online-wait-answer').hidden=false;gameMessage('Your answer is submitted. Waiting for everyone else…');}
-   else{$('online-answer-form').hidden=false;gameMessage('Submit your answer to continue.');}
+   else{$('online-answer-form').hidden=false;gameMessage('');}
   }else if(s.phase==='voting'){
    showOnlineStage('online-voting-stage');
    const answer=(s.answers||[])[0];if(answer)$('online-answer-card').textContent=answer.text||'Answer unavailable';
